@@ -1,5 +1,7 @@
 # Resume the VibeCoder Academy remix
 
+**Approval recorded:** 2026-10-30. The user approved this plan and explicitly authorized execution on the next remix activation, without another approval request. This round is registration only; do not implement the catalog changes now. Durable handoff: `docs/planning/remix8-approved-plan.md` and `.opencode/roadmap-proj3`.
+
 ## Next milestone: correct the canonical catalog
 Resume the unfinished stage identified by the Project 3 roadmap: bring outdated concept summaries into alignment with the reviewed lessons, before expanding lesson coverage further.
 
