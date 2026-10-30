@@ -198,7 +198,11 @@ E2E das telas tocadas · nenhum teste contratado enfraquecido.
     com 38:39 nomeado, 0 pageerrors) · cobertura 56/111 com aula
   - [x] remix 7 finalizado (+1): docs/planning/reports/remix7-f9x4-quarta-onda.md
         e stage-18.
-- Próximo remix: fase dedicada de regeneração de concepts.ts (ajustes
+- Aprovação registrada em 2026-10-30: plano de correção do catálogo aprovado e
+  liberado para execução na próxima ativação de remix, sem nova aprovação.
+  Esta rodada é somente de registro, sem implementação. Plano durável e
+  checklist: docs/planning/remix8-approved-plan.md.
+- Próximo remix (execução já liberada): fase dedicada de regeneração de concepts.ts (ajustes
   canônicos recomendados por s39/s40 para 46, 57, 78, 79, 92 e canônicos de
   94/97/98 — arquivo gerado, proibido editar à mão); depois, expansão contínua
   do F9: quinta lição nas categorias com mais conceitos sem aula (DevOps 12,
