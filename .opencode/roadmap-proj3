@@ -1,0 +1,208 @@
+# Roadmap — Project 3 (estúdio de aprendizagem e investigação)
+
+Gates globais por fase (PRD D12): tsgo limpo · vitest verde ≥101 · build OK ·
+E2E das telas tocadas · nenhum teste contratado enfraquecido.
+
+## F0 — Fundação de identidade v3 e shell (PRD §3/F0, D1–D4, contratos 9.1–9.2)
+- [x] Tokens tema claro + bancada + evidência em styles.css (sem cor hardcoded)
+- [x] Papéis tipográficos aplicados (Fraunces/Grotesk/Mono)
+- [x] Header novo: Início·Biblioteca·Laboratórios·Missões·Progresso·Meu app, sem badge n/111, mobile navegável
+- [x] Rota /library criada com o acervo atual; links consistentes
+- [x] Passada de contraste nos componentes que assumiam fundo escuro
+- Gates F0: tsgo OK · vitest 118/118 · build OK · e2e_f0_shell verde (nav completa, /library 111 cards, ?q= sincronizado, mobile nav visível, 0 pageerrors) · tema claro aplicado
+- [x] F0 concluída (gates acima verdes)
+
+## F1 — Home: mesa de trabalho (PRD §3/F1)
+- [x] Estados: primeira visita · retorno com ponto de retomada · revisão pendente · concluído
+- [x] Catálogo sai de /; seleção editorial curta
+- [x] Objetivo editável com admissão de não correspondência (D9)
+- Gates F1: tsgo OK · vitest 127/127 (+next-action.test: 9 contratos) · build OK · e2e_f1_home verde (1ª visita sem catálogo, retorno com ação primária contextualizada, admissão visível, recs em pt-BR)
+- [x] F1 concluída
+
+## F2 — Biblioteca: problema, mecanismo e contraste (PRD §3/F2)
+- [x] Busca inclui aulas+labs+missões com motivo e tipo de experiência
+- [x] Cards: problema + ação aprendida + representação (analogia sai do resumo)
+- [x] Categorias com apresentação própria; vazio orientado; filtros preservados
+- Gates F2: tsgo OK · vitest 141/141 (+library-search: 14 testes) · build OK · e2e_f2_library verde (7 passos: sintoma com motivo, categoria editorial, filtros preservados ao voltar, vazio orientado, visão compacta, filtro de tipo; 0 pageerrors) · nenhum teste contratado enfraquecido
+- [x] F2 concluída
+
+## F3 — Aula: compreensão guiada, consulta e prática (PRD §3/F3, 9.6)
+- [x] Modos guided/reference/practice (?mode=)
+- [x] Pré-requisitos com nome/motivo/retomada
+- [x] Render dedicado de timeline (teste de shapes)
+- [x] Síntese final derivada do contrato Lesson
+- Gates F3: tsgo limpo · vitest 145/145 (+lesson-modes: 4 testes) · build OK ·
+  e2e_f3_lesson verde (5 passos: guiado default com pré-reqs nomeados,
+  previsão→modelo→timeline, retorno ao ponto via ?from=, consulta sem
+  prática, prática com síntese; 0 pageerrors) · nenhum teste contratado
+  enfraquecido
+- [x] F3 concluída (gates acima verdes)
+
+## F4 — Laboratórios: catálogo intencional + bancada unificada (PRD §3/F4, 9.7)
+- [x] Catálogo com fenômeno/controles/competência/limites por lab (+ chips prática vs contexto)
+- [x] Bancada: previsão→execução identificável→observação→relatório (bench-shell.tsx + bench.ts)
+- [x] Comparação rotulada; reinício ≠ configuração; estados completos (no-run, invalid-param, partial, paused, out-of-model, ready)
+- [x] Os 6 labs um a um (ratelimit·circuit·nplusone·sqli·pubsub·tail) sem regredir simulators.test
+- Gates F4: tsgo limpo · vitest 157/157 (+bench.test: 12 contratos; simulators intacto) · build OK ·
+  e2e_f4_lab verde (8 passos: previsão exigida antes da 1ª execução, execução
+  identificável #1, comparação A/B rotulada, relatório registrado, reinício
+  explícito, catálogo completo, pausa nomeada no pubsub, unidades no tail;
+  0 pageerrors) · nenhum teste contratado enfraquecido
+- [x] F4 concluída (gates acima verdes)
+
+## F5 — Missões: investigação com memória (PRD §3/F5, D7)
+- [x] Histórico de raciocínio preservado entre etapas (teste de store)
+- [x] Dossiê derivado e editável
+- [x] Lab↔missão com ida-e-volta de hipótese/resultado
+- [x] Índice com problema/competência/pré-reqs/produto/interrompida
+- Gates F5: tsgo limpo · vitest 169/169 (+mission-history: 12 contratos) · build OK ·
+  e2e_f5_mission verde (9 passos: índice com competência/pré-reqs/produto,
+  histórico preservado entre etapas, resultado de tarefa no histórico,
+  interrompida com etapa no índice, hipótese carregada ao lab, relatório da
+  bancada incorporado como evidência, dossiê derivado e salvo, recarga
+  preserva 6 entradas; 0 pageerrors) · nenhum teste contratado enfraquecido
+- [x] F5 concluída (gates acima verdes)
+
+## F6 — Progresso, evidências e revisão (PRD §3/F6, 9.3–9.4)
+- [x] Store de evidência contextual (chave própria; revealed ≠ demonstração)
+- [x] Progresso como perguntas + lacunas + evidências; 0/0 = "sem prática disponível"
+- [x] Revisão como sessão de recuperação; retained só via recordAttempt
+- [x] Caderno com origem rastreada (/notebook; origem exigida fora de "note")
+- Gates F6: tsgo limpo · vitest 187/187 (+evidence: 10, +notebook: 8) · build OK ·
+  e2e_f6_progress verde (9 passos: abertura com perguntas e 0/0 honesto,
+  tentativa em aula com cenário/resposta/critérios casados por ts, 2
+  tentativas, comparação lado a lado salva no caderno, recuperação vencida
+  respondida fecha via recordAttempt, chip Retido ativo, caderno com origem
+  e anotação, bancada grava evidência+relatório; 0 pageerrors) · nenhum
+  teste contratado enfraquecido
+- [x] F6 concluída (gates acima verdes)
+
+## F7 — Meu app: registro contextual (PRD §3/F7, 9.5)
+- [x] Ficha de decisão (necessidade→decisão→motivo→alternativa→evidência→verificação)
+- [x] "Não se aplica" de primeira classe; legado preservado 1:1 (somente leitura)
+- Gates F7: tsgo limpo · vitest 196/196 (+decisions: 9; learning/recommend intactos) · build OK ·
+  e2e_f7_mine verde (5 passos: legado preservado com significado histórico,
+  ficha completa com alternativa/evidência/verificação e badge "percurso do
+  objetivo", "não se aplica" sem texto de decisão, ordenação por relevância
+  ao objetivo, recarga preserva fichas + legado; 0 pageerrors)
+- [x] F7 concluída (gates acima verdes)
+
+## F8 — Acabamento transversal (PRD §3/F8)
+- [x] Tabela de estados §15 aplicada nas telas novas
+- [x] Teclado completo; equivalentes que respondem à pergunta; reduced-motion
+- [x] Mobile recomposto (não empilhado); idioma pt-BR na UI
+- Gates F8: tsgo limpo · vitest 196/196 (strings fixadas de bench/progress
+  atualizadas ao idioma novo, semântica intacta) · build OK ·
+  e2e_f8_keyboard verde (16 passos: teclado em aula+lab+missão, estados por
+  tela, vazio orientado; 0 pageerrors) · mobile 390×844 sem overflow nas 6
+  telas · nenhum teste contratado enfraquecido
+- [x] F8 concluída (gates acima verdes)
+
+## F9 — Conteúdo: percursos fechados e honestidade (PRD §3/F9, contínuo)
+- [x] Auditoria dos 111 conceitos pelos 8 critérios; elos frágeis primeiro
+      (docs/planning/reports/remix3-f9-auditoria-111.md — a=26 b=85 c=0 no inventário;
+      10 elos frágeis priorizados; Security 78/79 sinalizada; subagente read-only s17)
+- [x] Percursos sem referência superficial no ponto decisivo
+      (lições 14, 25, 26, 93 rev 3.0 + 10 tarefas + motivos de pré-req; os 3 percursos
+      de ROUTES 100% com aula — contrato src/test/f9-audit.test.ts, falhava em 14/25/26/93 antes da integração)
+- [x] reviewed só com revisão efetiva
+      (guarda em f9-audit.test.ts: reviewed:true exige "revisão efetiva registrada";
+      30 lições com reviewed:false e proveniência honesta)
+- Gates F9: tsgo limpo · vitest 198/198 (+f9-audit: 2 contratos; nenhum teste
+  contratado enfraquecido) · build OK · verificação E2E nas 4 lições novas
+  (guided renderiza pré-reqs nomeados/situação/previsão; 0 pageerrors) ·
+  biblioteca exibe 30/111
+- [x] F9 concluída (metas parciais registradas: a expansão das 7 categorias sem
+      lição estruturada permanece aberta — fila priorizada no relatório de auditoria)
+
+## Encerramento
+- Reporte ao monitor (seção 20 do plan.md) e registre "remix finalizado (+N)" por grande objetivo concluído; linha "Próximo remix:" aponta a fase pendente.
+- remix 3: F0–F8 concluídas em rodadas anteriores; F9 concluída nesta rodada
+  (remix finalizado (+1), docs/planning/reports/remix3-f9-conteudo.md e stage-14).
+- remix 4 (rodada anterior): Security 78/79 + primeira lição de DevOps(6),
+  Streaming(22), Distributed(34), Scaling(45), Reliability(56), Networking(97)
+  + revisão s25 dos elos 'a' (remix finalizado (+1), remix4-f9x-expansao.md).
+- remix 5 (concluída nesta rodada): segunda onda da expansão contínua do F9
+  (§12.2, D16 do PRD) — enxame s26–s32 entregou 8 objetos Lesson/Task íntegros
+  (sandbox read-only; conteúdo persistido pelo agente principal em
+  .opencode/work/sub/{K}/out/); integração, renames de contrato
+  (ids t-<id>-<tipo>; chaves de rubrica sem vazamento no rótulo) e gates
+  aplicados pelo agente principal.
+  - [x] Segunda lição por categoria: DevOps 7 (Docker), Streaming 23 (Long
+        Polling), Distributed 35 (Eventual Consistency), Scaling 46 (Horizontal
+        Scaling), Reliability 57 (Liveness & Readiness Probes), Networking 98
+        (TCP vs UDP)
+  - [x] Fila da auditoria fechada: 92 (Throughput) e 94 (Tail Latency), com a
+        convenção nearest-rank explícita (P99=100ms, máx=10.000ms, média=199ms)
+  - [x] 14 tarefas novas (2 por lição), 10 motivos de pré-req (pt-BR), 26
+        relations novas sem duplicatas
+  - [x] contrato novo: src/test/f9-expansion2.test.ts (6 contratos)
+  - Gates remix 5: tsgo limpo · vitest 208/208 (+f9-expansion2: 6; nenhum teste
+    contratado enfraquecido) · build OK · E2E das 8 lições novas (guided
+    renderiza situação/previsão/pré-reqs nomeados; biblioteca lista Docker e
+    Horizontal Scaling; 0 pageerrors) · biblioteca exibe 46/111 com aula
+- Próximo remix: expansão contínua do F9 — terceira lição nas categorias com
+  mais conceitos sem aula (DevOps 15, Security 14, Distributed 9, Database 8,
+  Observability 5) e revisão técnica independente (reviewed) ainda pendente
+  para todas as lições.
+- remix 5 finalizado (+1): docs/planning/reports/remix5-f9x2-segunda-onda.md e
+  stage-16.
+- remix 6 (rodada atual): terceira lição nas categorias com mais conceitos sem
+  aula + primeira leva de revisão técnica independente (D17 do PRD) — enxame
+  s33–s38 + s38a/s38b (substituição do s38, falho por truncamento), subagentes
+  read-only com conteúdo persistido pelo agente principal em
+  .opencode/work/sub/{K}/out/; integração, correções de contrato e gates
+  aplicados pelo agente principal.
+  - [x] 5 lições novas: DevOps 52 (Blue-Green Deployments), Security 67
+        (Secrets Management), Distributed 39 (Race Conditions), Database 28
+        (Connection Pooling), Observability 65 (Error Budgets)
+  - [x] 10 tarefas novas (2 por lição; renames t-67-find-flaw/t-67-variant para
+        o contrato t-<id>-<tipo>), 2 motivos de pré-req (28:11, 65:63), 17
+        relations novas sem duplicatas
+  - [x] revisão independente s38a/s38b: 12/16 alvos com veredito — 6 aprovadas
+        com revisão efetiva registrada (6, 22, 23, 34, 45, 56 → reviewed:true);
+        ajustes obrigatórios aplicados e documentados em 7, 35, 46, 57, 92
+        (chaves de rubrica/insolúveis; misconception alinhada) — revalidação
+        pendente; 78/79 confirmadas com ajuste canônico pendente; 94/97/98 sem
+        revisão (limite do s38b)
+  - [x] contrato novo: src/test/f9-expansion3.test.ts (7 contratos);
+        f9-expansion2 atualizado para a guarda f9-audit (reviewed exige registro
+        efetivo — justificativa no PRD D17 e no relatório da rodada)
+  - Gates remix 6: tsgo limpo · vitest 215/215 (+7; nenhum teste contratado
+    enfraquecido — f9-expansion2 reforçado, não enfraquecido) · build OK ·
+    E2E das 5 lições novas (renderização guided, fichas de pré-req nomeadas em
+    28/65, prática da 39, biblioteca lista as 5, cobertura 51/111, 0
+    pageerrors) · biblioteca exibe 51/111 com aula
+  - [x] remix 6 finalizado (+1): docs/planning/reports/remix6-f9x3-terceira-onda-revisao.md
+        e stage-17.
+- [x] Remix 7 — F9 expansão contínua, quarta onda (D18): lições s41–s45,
+      revisão s39, revalidação s40, guarda de rubricas.
+  - [x] 5 lições novas: DevOps 53 (Canary Releases), Security 71 (TLS),
+        Distributed 38 (Distributed Locks, pré-req 39), Performance 41
+        (Memory Leaks), Database 29 (Read Replicas)
+  - [x] 10 tarefas novas (2 por lição), motivo de pré-req 38:39, 11 relations
+        novas sem duplicatas; conversão dos checks em prosa para funções exatas
+  - [x] revisão s39: 94, 97, 98 aprovadas (reviewed:true, revisão efetiva
+        registrada); correção aplicada à string de competência de tail-latency
+        em src/lib/bench.ts (nearest-rank P99 = 100 ms, max = 10.000 ms,
+        média = 249 ms)
+  - [x] revalidação s40: 7, 35, 46, 57, 92 aprovadas (reviewed:true, revisão
+        efetiva registrada); duas fontes bloqueadas (403) verificadas
+        diretamente pelo agente principal (RabbitMQ /docs/confirms; OWASP)
+  - [x] contrato novo: src/test/rubric-integrity.test.ts (satisfatibilidade de
+        rubricas contra as opções reais até 3 picks; pegou t-35-variant
+        exigindo 3 escolhas exatas) e src/test/f9-expansion4.test.ts
+  - Gates remix 7: tsgo limpo · vitest 227/227 (+12; nenhum teste contratado
+    enfraquecido) · build OK · E2E das 5 lições novas (renderização guided
+    completa, previsão antes do modelo, biblioteca lista as 5, prática da 38
+    com 38:39 nomeado, 0 pageerrors) · cobertura 56/111 com aula
+  - [x] remix 7 finalizado (+1): docs/planning/reports/remix7-f9x4-quarta-onda.md
+        e stage-18.
+- Próximo remix: fase dedicada de regeneração de concepts.ts (ajustes
+  canônicos recomendados por s39/s40 para 46, 57, 78, 79, 92 e canônicos de
+  94/97/98 — arquivo gerado, proibido editar à mão); depois, expansão contínua
+  do F9: quinta lição nas categorias com mais conceitos sem aula (DevOps 12,
+  Security 11, Distributed 7, Database 6, Async 4, Reliability 5, Performance
+  6) e revisão técnica independente das lições novas 29/38/41/53/71/94-rev
+  (método s38b).
+
